@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Manager</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <h1>Post Manager</h1>
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Body</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Corinthians</td>
+                    <td>Vai Corinthians!</td>
+                    <td>2012</td>
+                </tr>
+            </tbody>
+        </table>
+        <button id="open-modal">Adicionar</button>       
+    </div>
+    <div id="fade" class="hide"></div>
+    <div id="modal" class="hide">
+        <div class="modal-header">
+            <h2>Tela de Adição</h2>
+            <button id="close-modal">Fechar</button>
+        </div>
+        <div class="modal-body">
+            <form action="">
+                <div class="input-box">
+                    <input type="text" placeholder="Title" id="title" required>
+                </div>
+                <div class="input-box">
+                    <input type="text" placeholder="Body" id="body"required>
+                </div>
+                <div class="input-box">
+                    <input type="date" id="date" required>
+                </div>
+                <button type="submit" id="add-btn" class="input-box">Adicionar</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
