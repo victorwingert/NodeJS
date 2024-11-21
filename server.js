@@ -22,4 +22,7 @@ app.use((err, req, res, next) => {
 
 // Listen on pc port
 const PORT = process.env.PORT || 3000;
+
+const path = require("path");
+
 app.listen(PORT, () => console.log(`Server running on PORT ${PORT}`));

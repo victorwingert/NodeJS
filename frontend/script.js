@@ -44,3 +44,29 @@ addButton.addEventListener('click', () => {
     bodyInput.value = '';
     dateInput.value = '';
 })
+
+async function loadPosts() {
+    try {
+        const response = await fetch("http://localhost:3000/posts");
+        const data = await response.json();
+
+        const tbody = document.querySelector("tbody");
+        tbody.innerHTML = "";
+
+        data.posts.forEach(post => {
+            const row = document.createElement("tr");
+
+            row.innerHTML = `
+                <td>${post.id}</td>
+                <td>${post.title}</td>
+                <td>${post.body}</td>
+                <td>${post.created_at}</td>
+            `;
+            tbody.appendChild(row);
+        });
+    } catch (error) {
+        console.error("Erro ao carregar os posts:", error);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", loadPosts);
