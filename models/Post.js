@@ -1,9 +1,10 @@
 const db = require('../config/db'); 
 
 class Post {
-    constructor(title, body) {
+    constructor(title, body, created_at) {
         this.title = title;
         this.body = body;
+        this.created_at = created_at;
     }
 
     save() {
@@ -38,6 +39,16 @@ class Post {
 
     static findById(id) {
         let sql = `SELECT * FROM posts WHERE id = ${id};`;
+
+        return db.execute(sql);
+    }
+
+    static updateById(id, title, body, created_at) {
+        let sql = `
+            UPDATE posts
+            SET title = ${title}, body = ${body}, created_at = ${created_at}
+            WHERE id = ${id};
+        `;
 
         return db.execute(sql);
     }

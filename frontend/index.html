@@ -11,6 +11,7 @@
 
 <body>
     <h1>Post Manager</h1>
+
     <div class="container">
         <table>
             <thead>
@@ -19,6 +20,7 @@
                     <th>Title</th>
                     <th>Body</th>
                     <th>Date</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -27,7 +29,9 @@
         </table>
         <button id="open-modal">Adicionar</button>       
     </div>
+
     <div id="fade" class="hide"></div>
+
     <div id="modal" class="hide">
         <div class="modal-header">
             <h2>Tela de Adição</h2>
@@ -39,7 +43,7 @@
                     <input type="text" placeholder="Title" id="title" required>
                 </div>
                 <div class="input-box">
-                    <input type="text" placeholder="Body" id="body"required>
+                    <input type="text" placeholder="Body" id="body" required>
                 </div>
                 <div class="input-box">
                     <input type="date" id="date" required>
