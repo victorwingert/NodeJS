@@ -38,14 +38,16 @@ addButton.addEventListener('click', () => {
 
     table.innerHTML += template;
 
-    toggleModal(); // Fecha o modal com animação
+    toggleModal();
 
     titleInput.value = '';
     bodyInput.value = '';
     dateInput.value = '';
 })
 
-async function loadPosts() {
+fetchData();
+
+async function fetchData() {
     try {
         const response = await fetch("http://localhost:3000/posts");
         const data = await response.json();
@@ -55,18 +57,18 @@ async function loadPosts() {
 
         data.posts.forEach(post => {
             const row = document.createElement("tr");
+            const fixDate = new Date(post.created_at).toLocaleDateString('pt-BR');
 
             row.innerHTML = `
                 <td>${post.id}</td>
                 <td>${post.title}</td>
                 <td>${post.body}</td>
-                <td>${post.created_at}</td>
+                <td>${fixDate}</td>
             `;
             tbody.appendChild(row);
-        });
-    } catch (error) {
-        console.error("Erro ao carregar os posts:", error);
+        })
+    }
+    catch (error) {
+        console.log(error);
     }
 }
-
-document.addEventListener("DOMContentLoaded", loadPosts);
