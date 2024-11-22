@@ -49,7 +49,7 @@ fetchData();
 
 async function fetchData() {
     try {
-        const response = await fetch("http://localhost:3000/posts");
+        const response = await fetch("https://nodejs-3y3f.onrender.com/posts");
         const data = await response.json();
 
         const tbody = document.querySelector("tbody");
